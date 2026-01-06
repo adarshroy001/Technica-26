@@ -99,3 +99,43 @@
   animation: fog 25s linear infinite;
 }
 
+/* Grid and Hex Patterns */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(46, 204, 113, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 204, 113, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.hex-pattern {
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(46, 204, 113, 0.05) 40px, rgba(46, 204, 113, 0.05) 41px),
+    repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(46, 204, 113, 0.05) 40px, rgba(46, 204, 113, 0.05) 41px),
+    repeating-linear-gradient(120deg, transparent, transparent 40px, rgba(46, 204, 113, 0.05) 40px, rgba(46, 204, 113, 0.05) 41px);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(46, 204, 113, 0.1);
+}
+
+/* Shimmer effect */
+.bg-shimmer {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(46, 204, 113, 0.3) 50%, 
+    transparent 100%
+  );
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
+}
+
+.text-chemical {
+  color: #2ecc71;
+}

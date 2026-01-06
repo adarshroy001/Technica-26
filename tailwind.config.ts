@@ -13,6 +13,8 @@ const config: Config = {
         'space-grotesk': ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
         'inter': ['var(--font-inter)', 'system-ui', 'sans-serif'],
         'jetbrains': ['var(--font-jetbrains-mono)', 'monospace'],
+        'display': ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+        'mono': ['var(--font-jetbrains-mono)', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

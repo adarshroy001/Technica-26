@@ -1,71 +1,303 @@
-'use client';
+"use client"
+import { motion, Variants } from "framer-motion";
+import { FlaskConical, Calendar } from "lucide-react";
+import { PeriodicElement } from "@/components/PeriodicElement";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+// Letter animation variants
+const letterVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.9 + i * 0.08,
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  })
+};
 
-export default function Hero() {
+// Glitch effect for "SAY MY NAME"
+const glitchVariants: Variants = {
+  initial: { opacity: 0, scale: 0.8 },
+  animate: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { delay: 1.3, duration: 0.5 }
+  }
+};
+
+const Hero = () => {
+  const technicaLetters = "TECHNICA".split("");
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-toxic-bg">
-      {/* Base Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_#1b4332,_#0b0f0d_70%)]" />
-
-      {/* Toxic Fog */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(46,204,113,0.08),transparent)] animate-fog" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute w-full h-full object-cover"
+        >
+          {/* Add your video source here */}
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src="/videos/hero-bg.webm" type="video/webm" />
+        </video>
+        
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60" />
+        
+        {/* Gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+        
+        {/* Green tint overlay for Breaking Bad feel */}
+        <div className="absolute inset-0 bg-[#2ecc71]/5 mix-blend-overlay" />
       </div>
 
-      {/* Hex Grid Overlay */}
-      <div className="absolute inset-0 opacity-[0.08] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImhleCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoMzApIj48cG9seWdvbiBwb2ludHM9IjMwLDAgMTAsMjAgMTAsNDAgMzAsNjAgNTAsNDAgNTAsMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJlY2M3MSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjaGV4KSIvPjwvc3ZnPg==')]" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-10 z-[1]" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      {/* Floating periodic elements - minimal for cleaner look with video */}
+      <motion.div
+        className="absolute top-[20%] left-[8%] hidden xl:block z-[2]"
+        animate={{ y: [-5, 5, -5] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <PeriodicElement symbol="Fe" number="26" name="Iron" size="sm" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute top-[25%] right-[8%] hidden xl:block z-[2]"
+        animate={{ y: [5, -5, 5] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <PeriodicElement symbol="Cu" number="29" name="Copper" size="sm" />
+      </motion.div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="space-y-8"
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-3 px-5 py-2.5 bg-black/70 border border-[#2ecc71]/50 rounded-full mb-10"
         >
-          {/* Title */}
-          <h1 className="font-space-grotesk text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-toxic-green via-emerald-400 to-toxic-green bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(46,204,113,0.35)]">
-              TECHNICA
-            </span>
-          </h1>
+          <Calendar className="w-4 h-4 text-[#2ecc71]" />
+          <span className="font-mono text-xs md:text-sm tracking-wider text-[#2ecc71] font-medium">
+            MARCH 15-17, 2025
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2ecc71]" />
+          <span className="font-mono text-xs md:text-sm tracking-wider text-gray-300">
+            NIT JAMSHEDPUR
+          </span>
+        </motion.div>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Annual Branch Fest of{' '}
-            <span className="text-toxic-green font-semibold">
-              Metallurgical & Materials Engineering
-            </span>
-            <br />
-            NIT Jamshedpur
-          </p>
-
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl font-space-grotesk text-toxic-green/80 italic">
-            Where Innovation is Forged
-          </p>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-10">
-            <Link
-              href="#register"
-              className="px-8 py-4 bg-toxic-green text-toxic-bg font-semibold rounded-lg transition-all hover:shadow-[0_0_35px_rgba(46,204,113,0.45)]"
+        {/* Main Title with Periodic Table Style */}
+        <div className="mb-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex items-center justify-center gap-1.5 md:gap-3 flex-wrap"
+          >
+            {/* Te */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Register Now
-            </Link>
-
-            <Link
-              href="#events"
-              className="px-8 py-4 border border-toxic-green/60 text-toxic-green font-semibold rounded-lg hover:bg-toxic-green/10 transition-all"
+              <PeriodicElement symbol="Te" number="52" name="Tellurium" size="lg" />
+            </motion.div>
+            
+            {/* Ch - Custom (Breaking Bad reference - 99.1% pure) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="w-24 h-28 relative flex flex-col items-center justify-center 
+                border-2 border-[#2ecc71] bg-black/80"
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)",
+              }}
             >
-              View Events <ChevronRight className="inline w-4 h-4 ml-1" />
-            </Link>
-          </div>
+              <span className="absolute top-1 left-1.5 text-xs font-mono text-[#2ecc71]/80">99</span>
+              <span className="font-display font-bold text-4xl text-[#2ecc71] leading-none">Ch</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 mt-1">Chemistry</span>
+            </motion.div>
+
+            {/* Ni */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <PeriodicElement symbol="Ni" number="28" name="Nickel" size="lg" />
+            </motion.div>
+
+            {/* Ca */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <PeriodicElement symbol="Ca" number="20" name="Calcium" size="lg" />
+            </motion.div>
+          </motion.div>
+
+          {/* TECHNICA text below - letter by letter animation */}
+          <motion.h1
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] mt-5 flex justify-center"
+          >
+            {technicaLetters.map((letter, i) => (
+              <motion.span
+                key={i}
+                custom={i}
+                variants={letterVariants}
+                initial="hidden"
+                animate="visible"
+                className="inline-block"
+                style={{
+                  background: "linear-gradient(135deg, #2ecc71 0%, #0be881 50%, #10ac84 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text"
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+          className="font-mono text-sm md:text-base tracking-wider text-gray-400 uppercase mb-8"
+        >
+          Annual Branch Fest of{" "}
+          <span className="text-white">Metallurgical & Materials Engineering</span>
+        </motion.p>
+
+        {/* Tagline - Breaking Bad "Say My Name" with glitch effect */}
+        <motion.div
+          variants={glitchVariants}
+          initial="initial"
+          animate="animate"
+          className="relative inline-block"
+        >
+          {/* Glitch layers */}
+          <motion.span 
+            className="absolute inset-0 text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide text-[#2ecc71] opacity-0"
+            animate={{
+              opacity: [0, 0.8, 0],
+              x: [-2, 2, -2],
+              transition: { delay: 2, duration: 0.2, repeat: Infinity, repeatDelay: 4 }
+            }}
+          >
+            "SAY MY NAME"
+          </motion.span>
+          <motion.span 
+            className="absolute inset-0 text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide text-[#0be881] opacity-0"
+            animate={{
+              opacity: [0, 0.8, 0],
+              x: [2, -2, 2],
+              transition: { delay: 2.05, duration: 0.2, repeat: Infinity, repeatDelay: 4 }
+            }}
+          >
+            "SAY MY NAME"
+          </motion.span>
+          
+          {/* Main text with shimmer effect */}
+          <motion.span 
+            className="relative text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide"
+            style={{
+              background: "linear-gradient(90deg, #2ecc71 0%, #0be881 50%, #2ecc71 100%)",
+              backgroundSize: "200% 100%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear",
+              delay: 2
+            }}
+          >
+            "SAY MY NAME"
+          </motion.span>
+          
+          {/* Subtle glow behind tagline */}
+          <motion.div 
+            className="absolute inset-0 blur-2xl bg-[#2ecc71]/30 -z-10"
+            animate={{
+              opacity: [0.2, 0.4, 0.2],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </motion.div>
+
+        {/* Chemical formula decoration with typing effect */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
+          className="mt-12 flex items-center justify-center gap-4 text-gray-500 font-mono text-xs"
+        >
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.3 }}
+          >
+            C₁₀H₁₅N
+          </motion.span>
+          <motion.span 
+            className="w-8 h-px bg-gradient-to-r from-transparent via-[#2ecc71]/50 to-transparent"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 2.2, duration: 0.4 }}
+          />
+          <motion.div
+            initial={{ opacity: 0, rotate: -180 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ delay: 2.4, duration: 0.5 }}
+          >
+            <FlaskConical className="w-4 h-4 text-[#2ecc71]/50" />
+          </motion.div>
+          <motion.span 
+            className="w-8 h-px bg-gradient-to-r from-transparent via-[#2ecc71]/50 to-transparent"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 2.6, duration: 0.4 }}
+          />
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 1, 0.7, 1] }}
+            transition={{ delay: 2.8, duration: 0.5 }}
+            className="text-[#2ecc71]/70"
+          >
+            99.1% Pure
+          </motion.span>
         </motion.div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0e0d] to-transparent z-[5]" />
     </section>
   );
-}
+};
+
+export default Hero;
