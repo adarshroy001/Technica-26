@@ -18,10 +18,8 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Events', href: '#events' },
-    { name: 'Timeline', href: '#timeline' },
-    { name: 'Team', href: '#team' },
-    { name: 'Sponsors', href: '#sponsors' },
+    { name: 'Events', href: '/events' },
+    { name: 'Timeline', href: '/timeline' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -56,12 +54,6 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-toxic-green group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-            <Link
-              href="#register"
-              className="px-6 py-2.5 bg-toxic-green text-toxic-bg font-semibold rounded-lg hover:bg-toxic-green/90 transition-all duration-200 hover:shadow-lg hover:shadow-toxic-green/30 hover:scale-105"
-            >
-              Register
-            </Link>
           </div>
 
           {/* Hamburger for mobile */}
@@ -118,13 +110,6 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                href="#register"
-                className="px-8 py-3 bg-toxic-green text-toxic-bg font-semibold rounded-lg hover:bg-toxic-green/90 transition-all duration-200 hover:shadow-lg hover:shadow-toxic-green/30 hover:scale-105"
-                onClick={() => setMobileOpen(false)}
-              >
-                Register
-              </Link>
             </div>
           </motion.div>
         </>
