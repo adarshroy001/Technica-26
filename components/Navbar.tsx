@@ -20,7 +20,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Events', href: '/events' },
     { name: 'Timeline', href: '/timeline' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
