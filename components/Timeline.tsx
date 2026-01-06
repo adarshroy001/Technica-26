@@ -211,9 +211,45 @@ const Timeline = () => {
           </div>
         </div>
 
+        {/* View Full Timeline Button */}
+        <motion.div 
+          className="flex justify-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <a 
+            href="/timeline"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-[#2ecc71] text-[#2ecc71] font-mono font-bold tracking-wider uppercase text-sm overflow-hidden transition-all duration-300 hover:text-black hover:shadow-[0_0_30px_rgba(46,204,113,0.4)]"
+          >
+            {/* Hover background fill */}
+            <span className="absolute inset-0 bg-[#2ecc71] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+            
+            {/* Button content */}
+            <span className="relative z-10 flex items-center gap-3">
+              View Full Timeline
+              <svg 
+                className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            
+            {/* Corner accents */}
+            <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[#2ecc71]" />
+            <span className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-[#2ecc71]" />
+            <span className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-[#2ecc71]" />
+            <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[#2ecc71]" />
+          </a>
+        </motion.div>
+
         {/* Bottom decoration */}
         <motion.div 
-          className="flex justify-center mt-20"
+          className="flex justify-center mt-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
