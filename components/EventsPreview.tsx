@@ -1,51 +1,65 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ArrowRight, Beaker, Code, Zap, Trophy, Brain, Cpu } from 'lucide-react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Beaker,
+  Code,
+  Zap,
+  Trophy,
+  Brain,
+  Cpu,
+} from "lucide-react";
 
 const events = [
   {
     id: 1,
-    name: 'MetalForge',
-    description: 'Metallurgical case study competition',
+    name: "CHITRANKIT",
+    description:
+      "The Technical Poster Presentation: A platform to showcase research, analysis, and visual storytelling through impactful technical posters in Metallurgy & Materials Engineering.",
     icon: Beaker,
-    gradient: 'from-toxic-green/20 to-emerald-900/20',
+    gradient: "from-toxic-green/20 to-emerald-900/20",
   },
   {
     id: 2,
-    name: 'CodeCrystal',
-    description: 'Competitive programming hackathon',
+    name: "METAL QUIZ",
+    description:
+      "Test Your Metallurgical Mastery: A high-energy technical quiz designed to test conceptual clarity, speed, and teamwork in Metallurgy & Materials Engineering.",
     icon: Code,
-    gradient: 'from-toxic-green/20 to-teal-900/20',
+    gradient: "from-toxic-green/20 to-teal-900/20",
   },
   {
     id: 3,
-    name: 'MaterialQuest',
-    description: 'Materials science treasure hunt',
+    name: "QUIZZICA",
+    description:
+      "Think Fast. Answer Faster: A thrilling quiz showdown testing your knowledge, reflexes, and teamwork across science, tech, current affairs, logic, and entertainment.",
     icon: Zap,
-    gradient: 'from-emerald-900/20 to-toxic-green/20',
+    gradient: "from-emerald-900/20 to-toxic-green/20",
   },
   {
     id: 4,
-    name: 'Innovation Pitch',
-    description: 'Startup idea presentation',
+    name: "CODEIAC",
+    description:
+      "Write the code. Control the outcome: A high-intensity coding battle where logic, speed, and creativity decide the winner.",
     icon: Trophy,
-    gradient: 'from-teal-900/20 to-toxic-green/20',
+    gradient: "from-teal-900/20 to-toxic-green/20",
   },
   {
     id: 5,
-    name: 'TechQuiz',
-    description: 'Technical trivia championship',
+    name: "METAL MORPH",
+    description:
+      "The Metallography Challenge: A hands-on event that lets you transform theory into practice by applying core metallurgical concepts in real lab conditions.",
     icon: Brain,
-    gradient: 'from-toxic-green/20 to-emerald-900/20',
+    gradient: "from-toxic-green/20 to-emerald-900/20",
   },
   {
     id: 6,
-    name: 'RoboWars',
-    description: 'Robotics combat competition',
+    name: "RHETORIX",
+    description:
+      "An Ultimate Presentation Challenge: Encourages participants to enhance technical knowledge, research aptitude, and presentation skills through core subject concepts.",
     icon: Cpu,
-    gradient: 'from-emerald-900/20 to-teal-900/20',
+    gradient: "from-emerald-900/20 to-teal-900/20",
   },
 ];
 
@@ -66,7 +80,8 @@ export default function EventsPreview() {
             Featured <span className="text-toxic-green">Events</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Compete, innovate, and showcase your skills across diverse technical challenges
+            Compete, innovate, and showcase your skills across diverse technical
+            challenges
           </p>
         </motion.div>
 
@@ -81,7 +96,9 @@ export default function EventsPreview() {
               whileHover={{ scale: 1.05, y: -5 }}
               className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${event.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${event.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+              ></div>
 
               <div className="relative bg-toxic-bg/50 backdrop-blur-sm border border-toxic-green/20 rounded-2xl p-6 hover:border-toxic-green/50 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">

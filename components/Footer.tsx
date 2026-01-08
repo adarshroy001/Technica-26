@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/_technica?igsh=MXN4NjVqbndreGMxaw==', label: 'Instagram' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:technica@nitjsr.ac.in', label: 'Email' },
   ];
@@ -23,7 +23,7 @@ export default function Footer() {
         >
           <div className="text-center md:text-left">
             <p className="text-gray-400 text-sm">
-              <span className="text-toxic-green font-semibold">TECHNICA</span> © 2025
+              <span className="text-toxic-green font-semibold">TECHNICA</span> © 2026
             </p>
           </div>
 
@@ -37,7 +37,8 @@ export default function Footer() {
                 <Link
                   href={social.href}
                   aria-label={social.label}
-                  className="p-2 bg-toxic-green/10 rounded-lg hover:bg-toxic-green/20 transition-colors duration-300 group"
+                  target='_blank'
+                  className="p-0 sm:p-2 bg-toxic-green/10 rounded-lg hover:bg-toxic-green/20 transition-colors duration-300 group"
                 >
                   <social.icon className="w-5 h-5 text-toxic-green group-hover:text-toxic-green/80 transition-colors" />
                 </Link>

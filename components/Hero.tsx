@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion, Variants } from "framer-motion";
 import { FlaskConical, Calendar } from "lucide-react";
 import { PeriodicElement } from "@/components/PeriodicElement";
@@ -12,24 +12,24 @@ const letterVariants: Variants = {
     transition: {
       delay: 0.9 + i * 0.08,
       duration: 0.4,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  })
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
 };
 
 // Glitch effect for "SAY MY NAME"
 const glitchVariants: Variants = {
   initial: { opacity: 0, scale: 0.8 },
-  animate: { 
-    opacity: 1, 
+  animate: {
+    opacity: 1,
     scale: 1,
-    transition: { delay: 1.3, duration: 0.5 }
-  }
+    transition: { delay: 1.3, duration: 0.5 },
+  },
 };
 
 const Hero = () => {
   const technicaLetters = "TECHNICA".split("");
-  
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Video Background */}
@@ -42,16 +42,18 @@ const Hero = () => {
           className="absolute w-full h-full object-cover"
         >
           {/* Add your video source here */}
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          <source src="/videos/hero-bg.webm" type="video/webm" />
+          <source
+            src="https://res.cloudinary.com/dfosbixpu/video/upload/v1767845449/8733059-hd_1920_1080_30fps_booi69.mp4"
+            type="video/mp4"
+          />
         </video>
-        
+
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60" />
-        
+
         {/* Gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
-        
+
         {/* Green tint overlay for Breaking Bad feel */}
         <div className="absolute inset-0 bg-[#2ecc71]/5 mix-blend-overlay" />
       </div>
@@ -60,21 +62,21 @@ const Hero = () => {
       <div className="absolute inset-0 grid-pattern opacity-10 z-[1]" />
 
       {/* Floating periodic elements - minimal for cleaner look with video */}
-      <motion.div
+      {/* <motion.div
         className="absolute top-[20%] left-[8%] hidden xl:block z-[2]"
         animate={{ y: [-5, 5, -5] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       >
         <PeriodicElement symbol="Fe" number="26" name="Iron" size="sm" />
       </motion.div>
-      
+
       <motion.div
         className="absolute top-[25%] right-[8%] hidden xl:block z-[2]"
         animate={{ y: [5, -5, 5] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       >
         <PeriodicElement symbol="Cu" number="29" name="Copper" size="sm" />
-      </motion.div>
+      </motion.div> */}
 
       {/* Main Content */}
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -87,7 +89,7 @@ const Hero = () => {
         >
           <Calendar className="w-4 h-4 text-[#2ecc71]" />
           <span className="font-mono text-xs md:text-sm tracking-wider text-[#2ecc71] font-medium">
-            MARCH 15-17, 2025
+            MARCH 16-18, 2025
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#2ecc71]" />
           <span className="font-mono text-xs md:text-sm tracking-wider text-gray-300">
@@ -109,10 +111,15 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <PeriodicElement symbol="Te" number="52" name="Tellurium" size="lg" />
+              <PeriodicElement
+                symbol="Te"
+                number="52"
+                name="Tellurium"
+                size="lg"
+              />
             </motion.div>
-            
-            {/* Ch - Custom (Breaking Bad reference - 99.1% pure) */}
+
+            {/* C - Custom (Breaking Bad reference - 99.1% pure) */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -123,9 +130,29 @@ const Hero = () => {
                 clipPath: "polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)",
               }}
             >
-              <span className="absolute top-1 left-1.5 text-xs font-mono text-[#2ecc71]/80">99</span>
-              <span className="font-display font-bold text-4xl text-[#2ecc71] leading-none">Ch</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 mt-1">Chemistry</span>
+              <span className="absolute top-1 left-1.5 text-xs font-mono text-[#2ecc71]/80">
+                6
+              </span>
+              <span className="font-display font-bold text-4xl text-[#2ecc71] leading-none">
+                C
+              </span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 mt-1">
+                Carbon
+              </span>
+            </motion.div>
+
+            {/* H */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <PeriodicElement
+                symbol="H"
+                number="1"
+                name="Hydrogen"
+                size="lg"
+              />
             </motion.div>
 
             {/* Ni */}
@@ -134,7 +161,12 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <PeriodicElement symbol="Ni" number="28" name="Nickel" size="lg" />
+              <PeriodicElement
+                symbol="Ni"
+                number="28"
+                name="Nickel"
+                size="lg"
+              />
             </motion.div>
 
             {/* Ca */}
@@ -143,14 +175,17 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <PeriodicElement symbol="Ca" number="20" name="Calcium" size="lg" />
+              <PeriodicElement
+                symbol="Ca"
+                number="20"
+                name="Calcium"
+                size="lg"
+              />
             </motion.div>
           </motion.div>
 
           {/* TECHNICA text below - letter by letter animation */}
-          <motion.h1
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] mt-5 flex justify-center"
-          >
+          <motion.h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] mt-5 flex justify-center">
             {technicaLetters.map((letter, i) => (
               <motion.span
                 key={i}
@@ -160,10 +195,11 @@ const Hero = () => {
                 animate="visible"
                 className="inline-block"
                 style={{
-                  background: "linear-gradient(135deg, #2ecc71 0%, #0be881 50%, #10ac84 100%)",
+                  background:
+                    "linear-gradient(135deg, #2ecc71 0%, #0be881 50%, #10ac84 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
+                  backgroundClip: "text",
                 }}
               >
                 {letter}
@@ -180,7 +216,9 @@ const Hero = () => {
           className="font-mono text-sm md:text-base tracking-wider text-gray-400 uppercase mb-8"
         >
           Annual Branch Fest of{" "}
-          <span className="text-white">Metallurgical & Materials Engineering</span>
+          <span className="text-white">
+            Metallurgical & Materials Engineering
+          </span>
         </motion.p>
 
         {/* Tagline - Breaking Bad "Say My Name" with glitch effect */}
@@ -191,32 +229,43 @@ const Hero = () => {
           className="relative inline-block"
         >
           {/* Glitch layers */}
-          <motion.span 
+          <motion.span
             className="absolute inset-0 text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide text-[#2ecc71] opacity-0"
             animate={{
               opacity: [0, 0.8, 0],
               x: [-2, 2, -2],
-              transition: { delay: 2, duration: 0.2, repeat: Infinity, repeatDelay: 4 }
+              transition: {
+                delay: 2,
+                duration: 0.2,
+                repeat: Infinity,
+                repeatDelay: 4,
+              },
             }}
           >
             "SAY MY NAME"
           </motion.span>
-          <motion.span 
+          <motion.span
             className="absolute inset-0 text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide text-[#0be881] opacity-0"
             animate={{
               opacity: [0, 0.8, 0],
               x: [2, -2, 2],
-              transition: { delay: 2.05, duration: 0.2, repeat: Infinity, repeatDelay: 4 }
+              transition: {
+                delay: 2.05,
+                duration: 0.2,
+                repeat: Infinity,
+                repeatDelay: 4,
+              },
             }}
           >
             "SAY MY NAME"
           </motion.span>
-          
+
           {/* Main text with shimmer effect */}
-          <motion.span 
+          <motion.span
             className="relative text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide"
             style={{
-              background: "linear-gradient(90deg, #2ecc71 0%, #0be881 50%, #2ecc71 100%)",
+              background:
+                "linear-gradient(90deg, #2ecc71 0%, #0be881 50%, #2ecc71 100%)",
               backgroundSize: "200% 100%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -229,23 +278,23 @@ const Hero = () => {
               duration: 3,
               repeat: Infinity,
               ease: "linear",
-              delay: 2
+              delay: 2,
             }}
           >
             "SAY MY NAME"
           </motion.span>
-          
+
           {/* Subtle glow behind tagline */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 blur-2xl bg-[#2ecc71]/30 -z-10"
             animate={{
               opacity: [0.2, 0.4, 0.2],
-              scale: [1, 1.1, 1]
+              scale: [1, 1.1, 1],
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         </motion.div>
@@ -264,7 +313,7 @@ const Hero = () => {
           >
             C₁₀H₁₅N
           </motion.span>
-          <motion.span 
+          <motion.span
             className="w-8 h-px bg-gradient-to-r from-transparent via-[#2ecc71]/50 to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
@@ -277,7 +326,7 @@ const Hero = () => {
           >
             <FlaskConical className="w-4 h-4 text-[#2ecc71]/50" />
           </motion.div>
-          <motion.span 
+          <motion.span
             className="w-8 h-px bg-gradient-to-r from-transparent via-[#2ecc71]/50 to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
