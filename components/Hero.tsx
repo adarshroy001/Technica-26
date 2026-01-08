@@ -17,7 +17,7 @@ const letterVariants: Variants = {
   }),
 };
 
-// Glitch effect for "SAY MY NAME"
+// Glitch effect for "Engineering The Unbreakable"
 const glitchVariants: Variants = {
   initial: { opacity: 0, scale: 0.8 },
   animate: {
@@ -89,7 +89,7 @@ const Hero = () => {
         >
           <Calendar className="w-4 h-4 text-[#2ecc71]" />
           <span className="font-mono text-xs md:text-sm tracking-wider text-[#2ecc71] font-medium">
-            MARCH 16-18, 2025
+            JANUARY 16-18, 2026
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#2ecc71]" />
           <span className="font-mono text-xs md:text-sm tracking-wider text-gray-300">
@@ -103,7 +103,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center justify-center gap-1.5 md:gap-3 flex-wrap"
+            className="flex items-center justify-center gap-3.5 md:gap-3 flex-wrap"
           >
             {/* Te */}
             <motion.div
@@ -119,7 +119,7 @@ const Hero = () => {
               />
             </motion.div>
 
-            {/* C - Custom (Breaking Bad reference - 99.1% pure) */}
+            {/* C */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ const Hero = () => {
           </span>
         </motion.p>
 
-        {/* Tagline - Breaking Bad "Say My Name" with glitch effect */}
+        {/* Tagline - Breaking Bad "Engineering The Unbreakable" with glitch effect */}
         <motion.div
           variants={glitchVariants}
           initial="initial"
@@ -242,7 +242,7 @@ const Hero = () => {
               },
             }}
           >
-            "SAY MY NAME"
+            "Engineering The Unbreakable"
           </motion.span>
           <motion.span
             className="absolute inset-0 text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wide text-[#0be881] opacity-0"
@@ -257,7 +257,7 @@ const Hero = () => {
               },
             }}
           >
-            "SAY MY NAME"
+            "Engineering The Unbreakable"
           </motion.span>
 
           {/* Main text with shimmer effect */}
@@ -281,7 +281,7 @@ const Hero = () => {
               delay: 2,
             }}
           >
-            "SAY MY NAME"
+            "Engineering The Unbreakable"
           </motion.span>
 
           {/* Subtle glow behind tagline */}

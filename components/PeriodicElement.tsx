@@ -59,7 +59,7 @@ export const PeriodicElement = ({
       </span>
 
       {/* Corner cut decoration */}
-      <div className="absolute bottom-0 right-0 w-3 h-3 border-t border-l border-primary/30 
+      <div className="absolute bottom-0 right-0 sm:w-3 sm:h-3 border-t border-l border-primary/30 
         transform rotate-45 translate-x-1 translate-y-1" />
     </motion.div>
   );

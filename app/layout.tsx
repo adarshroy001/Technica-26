@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TECHNICA 2025 | NIT Jamshedpur",
+  title: "TECHNICA 2026 | NIT Jamshedpur",
   description:
     "Annual Branch Fest of Metallurgical & Materials Engineering, NIT Jamshedpur",
   icons: {

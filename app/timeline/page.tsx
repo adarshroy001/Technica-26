@@ -259,7 +259,7 @@ const TimelineFullPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="font-mono text-[#2ecc71] text-sm tracking-[0.3em] uppercase mb-4 block">
+            <span className="font-mono sm:mt-0 mt-9 text-[#2ecc71] text-sm tracking-[0.3em] uppercase mb-4 block">
               Complete Schedule
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
@@ -334,9 +334,9 @@ const TimelineFullPage = () => {
                 </motion.div>
 
                 {/* Events Grid */}
-                <div className="relative">
+                <div className="relative ">
                   {/* Vertical timeline line */}
-                  <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gray-800/50 md:-translate-x-1/2">
+                  <div className="absolute left-1.5 md:left-1/2 top-0 bottom-0 w-[2px] bg-gray-800/50 md:-translate-x-1/2">
                     <motion.div
                       style={{ height: lineProgress }}
                       className="w-full bg-gradient-to-b from-[#2ecc71] to-[#0be881]"
@@ -459,7 +459,7 @@ const TimelineFullPage = () => {
                 viewport={{ once: true }}
               >
                 <button
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3 border-2 border-gray-700 text-gray-300 font-mono font-bold tracking-wider uppercase text-sm hover:border-[#2ecc71]/50 hover:text-[#2ecc71] transition-all duration-300"
+                  className="inline-flex w-[188px] items-center justify-center gap-3 px-6 py-3 border-2 border-gray-700 text-gray-300 font-mono font-bold tracking-wider uppercase text-sm hover:border-[#2ecc71]/50 hover:text-[#2ecc71] transition-all duration-300"
                   onClick={() => {
                     setActiveDay((prev) => (prev <= 2 ? prev + 1 : prev));
                     window.scrollTo({ top: 0, behavior: "smooth" });
