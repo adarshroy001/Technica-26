@@ -8,7 +8,13 @@ import { eventsData } from "@/components/Events";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Image Gallery Component for each event
-const ImageGallery = ({ images, eventName }: { images: string[]; eventName: string }) => {
+const ImageGallery = ({
+  images,
+  eventName,
+}: {
+  images: string[];
+  eventName: string;
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -27,14 +33,16 @@ const ImageGallery = ({ images, eventName }: { images: string[]; eventName: stri
           {eventName.charAt(0)}
         </span>
       </div>
-      
+
       {/* Uncomment when you have actual images */}
-      {/* <Image
+      <Image
         src={images[currentIndex]}
         alt={`${eventName} - Image ${currentIndex + 1}`}
         fill
-        className="object-cover transition-opacity duration-500"
-      /> */}
+        className={`object-cover transition-opacity duration-500 
+    ${currentIndex === 2 ? "object-bottom" : "object-center"}
+  `}
+      />
 
       {/* Navigation arrows - only show if more than 1 image */}
       {images.length > 1 && (
@@ -86,9 +94,12 @@ export default function EventsPage() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(46,204,113,0.15)_0%,transparent_70%)]" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232ecc71' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232ecc71' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           {/* Back Button */}
@@ -98,7 +109,7 @@ export default function EventsPage() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <Link 
+            <Link
               href="/"
               className="inline-flex items-center gap-2 text-gray-400 hover:text-[#2ecc71] transition-colors font-mono text-sm"
             >
@@ -124,8 +135,11 @@ export default function EventsPage() {
               </span>
             </h1>
             <p className="text-gray-400 font-mono text-lg max-w-2xl mx-auto">
-              Six flagship events. World-class competition.<br/>
-              <span className="text-[#2ecc71]">This is where empires are built.</span>
+              Six flagship events. World-class competition.
+              <br />
+              <span className="text-[#2ecc71]">
+                This is where empires are built.
+              </span>
             </p>
           </motion.div>
 
@@ -142,8 +156,12 @@ export default function EventsPage() {
               { label: "Days", value: "3" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-black text-[#2ecc71]">{stat.value}</div>
-                <div className="font-mono text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-black text-[#2ecc71]">
+                  {stat.value}
+                </div>
+                <div className="font-mono text-xs text-gray-500 uppercase tracking-wider">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </motion.div>
@@ -156,16 +174,18 @@ export default function EventsPage() {
           {eventsData.map((event, index) => (
             <motion.div
               key={event.id}
-              id={event.name.toLowerCase().replace(/\s+/g, '-')}
+              id={event.name.toLowerCase().replace(/\s+/g, "-")}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="scroll-mt-24"
             >
-              <div className={`grid md:grid-cols-2 gap-0 bg-gray-900/30 border border-gray-800 overflow-hidden hover:border-[#2ecc71]/30 transition-all duration-500 ${
-                index % 2 === 1 ? "md:grid-flow-dense" : ""
-              }`}>
+              <div
+                className={`grid md:grid-cols-2 gap-0 bg-gray-900/30 border border-gray-800 overflow-hidden hover:border-[#2ecc71]/30 transition-all duration-500 ${
+                  index % 2 === 1 ? "md:grid-flow-dense" : ""
+                }`}
+              >
                 {/* Image Gallery */}
                 <div className={index % 2 === 1 ? "md:col-start-2" : ""}>
                   <ImageGallery images={event.images} eventName={event.name} />
@@ -192,15 +212,20 @@ export default function EventsPage() {
                   {event.prizepool && (
                     <div className="mb-6">
                       <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#2ecc71]/10 border border-[#2ecc71]/30">
-                        <span className="font-mono text-xs text-gray-400 uppercase tracking-wider">Prize Pool</span>
-                        <span className="font-mono text-xl font-bold text-[#2ecc71]">{event.prizepool}</span>
+                        <span className="font-mono text-xs text-gray-400 uppercase tracking-wider">
+                          Prize Pool
+                        </span>
+                        <span className="font-mono text-xl font-bold text-[#2ecc71]">
+                          {event.prizepool}
+                        </span>
                       </div>
                     </div>
                   )}
 
                   {/* Photo count indicator */}
                   <div className="font-mono text-xs text-gray-500">
-                    {event.images.length} {event.images.length === 1 ? "photo" : "photos"} available
+                    {event.images.length}{" "}
+                    {event.images.length === 1 ? "photo" : "photos"} available
                   </div>
                 </div>
               </div>
@@ -228,7 +253,7 @@ export default function EventsPage() {
           </motion.div>
 
           {/* Chemical formula decoration */}
-          <motion.div 
+          <motion.div
             className="mt-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

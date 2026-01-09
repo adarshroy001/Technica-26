@@ -27,8 +27,8 @@ export const eventsData = [
       "Test Your Metallurgical Mastery: A high-energy technical quiz designed to test conceptual clarity, speed, and teamwork in Metallurgy & Materials Engineering.",
     prizepool: "₹7,000",
     images: [
-      "/images/events/codecrystal-1.jpg",
-      "/images/events/codecrystal-2.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936787/IMG_5800_xbw6y5.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936773/IMG_5824_j6pvs6.jpg",
     ],
   },
   {
@@ -38,8 +38,8 @@ export const eventsData = [
       "Think Fast. Answer Faster: A thrilling quiz showdown testing your knowledge, reflexes, and teamwork across science, tech, current affairs, logic, and entertainment.",
     prizepool: "₹6,000",
     images: [
-      "/images/events/materialquest-1.jpg",
-      "/images/events/materialquest-2.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936422/IMG_4602_boisp7.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936413/IMG_4668_1_nvkrkh.jpg",
     ],
   },
   {
@@ -49,9 +49,8 @@ export const eventsData = [
       "Write the code. Control the outcome: A high-intensity coding battle where logic, speed, and creativity decide the winner.",
     prizepool: "₹5,000",
     images: [
-      "/images/events/pitch-1.jpg",
-      "/images/events/pitch-2.jpg",
-      "/images/events/pitch-3.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936641/IMG_5402_hl7nob.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936636/IMG_5351_gxfaud.jpg",
     ],
   },
   {
@@ -60,17 +59,21 @@ export const eventsData = [
     description:
       "An Ultimate Presentation Challenge: Encourages participants to enhance technical knowledge, research aptitude, and presentation skills through core subject concepts.",
     prizepool: "₹10,000",
-    images: ["/images/events/techquiz-1.jpg"],
+    images: [
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936603/IMG_4604_wjk3uy.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936591/IMG_4428_zmbkbl.jpg",
+    ],
   },
   {
-    "id": 6,
-    "name": "METAL MORPH",
-    "description": "The Metallography Challenge: A hands-on event that lets you transform theory into practice by applying core metallurgical concepts in real lab conditions.",
-    "prizepool": "₹6,000",
+    id: 6,
+    name: "METAL MORPH",
+    description:
+      "The Metallography Challenge: A hands-on event that lets you transform theory into practice by applying core metallurgical concepts in real lab conditions.",
+    prizepool: "₹6,000",
     images: [
-      "/images/events/robowars-1.jpg",
-      "/images/events/robowars-2.jpg",
-      "/images/events/robowars-3.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936843/IMG_5581_a871pq.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936835/IMG_5557_mjdtkq.jpg",
+      "https://res.cloudinary.com/dfosbixpu/image/upload/v1767936840/IMG_5577_rnx0kd.jpg",
     ],
   },
 ];
@@ -194,12 +197,12 @@ export default function Events() {
                     </div>
 
                     {/* Uncomment when you have images */}
-                    {/* <Image
+                    <Image
                       src={currentEvent.images[0]}
                       alt={currentEvent.name}
                       fill
                       className="object-cover"
-                    /> */}
+                    />
 
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
